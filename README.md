@@ -4,9 +4,7 @@
 Steve's parents are passionate about green energy. Therefore, they decided to invest in Daqo New Energy Corporation, which makes silicon wafers for solar panels. Steve is going to look into Daqo for his parents. He also wants to analyze a handful of green energy stocks in addition to Daqo's stock.
 
 ### Purpose
-The purpose of this project is to refactor the code we have built. This is because Steve wants to expand the dataset to include the entire stock market over the last few years. Although the code works, it might not work as well for thousands of stocks. We are going to refactor the code and present an analysis and findings.<br>
-<br>
-The excel workbook is located [here](https://github.com/Takomochi/stock-analysis/blob/main/VBA_Challenge.xlsm). 
+The purpose of this project is to refactor the code we have built. This is because Steve wants to expand the dataset to include the entire stock market over the last few years. Although the code works, it might not work as well for thousands of stocks. We are going to refactor the code and present an analysis and findings. The excel workbook is located [here](https://github.com/Takomochi/stock-analysis/blob/main/VBA_Challenge.xlsm). 
 
 ## Results
 ### Analysis
@@ -19,13 +17,11 @@ Dim tickerVolumes(12) As Long
 Dim tickerStartingPrices(12) As Single
 Dim tickerEndingPrices(12) As Single
 ```
-<br>
 
 Store tickerVolumes inside the loop
 ```
 tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
 ```
-<br>
 
 Store tickerStartingPrices and inside the loop
 ```
@@ -35,7 +31,6 @@ tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
             
 End If
 ```
-<br>
 
 Store tickerEndingPrices and Increase tickerIndex inside the loop
 ```
@@ -47,8 +42,6 @@ tickerIndex = tickerIndex + 1
             
 End If
 ```
-
-<br>
 
 For loop to output the values
 ```
@@ -75,22 +68,21 @@ In 2018, most of the stocks performed negatively. The only stocks that kept posi
 3. Execution times of the original code and the refactored code<br>
 Run time became much faster for both years with the refactored code, as shown in the images.<br>
 
-Original<br>
-<img src="https://user-images.githubusercontent.com/85041697/139729537-bc03c414-bdf8-49ab-aad8-9ec48015fbf9.PNG" width="450">  <img src="https://user-images.githubusercontent.com/85041697/139729543-815d2754-d5c7-40a0-aa87-3b7797a86ebf.PNG" width="450">
+#### Execution time with original code<br>
+<img src="https://user-images.githubusercontent.com/85041697/139729537-bc03c414-bdf8-49ab-aad8-9ec48015fbf9.PNG" width="600">  <img src="https://user-images.githubusercontent.com/85041697/139729543-815d2754-d5c7-40a0-aa87-3b7797a86ebf.PNG" width="600">
 <br>
-
-Refactored<br>
-<img src="https://user-images.githubusercontent.com/85041697/139729564-e3743a05-6134-4fb5-8447-da2d39fecf19.PNG" width="450">  <img src="https://user-images.githubusercontent.com/85041697/139729605-a2678132-5913-43a3-9a31-0852464b6b56.PNG" width="450">
+<br>
+#### Execution time with refactored code<br>
+<img src="https://user-images.githubusercontent.com/85041697/139729564-e3743a05-6134-4fb5-8447-da2d39fecf19.PNG" width="600">  <img src="https://user-images.githubusercontent.com/85041697/139729605-a2678132-5913-43a3-9a31-0852464b6b56.PNG" width="600">
 
 
 ## Summary
 
 - What are the advantages or disadvantages of refactoring code?<br>
     - One of the advantages of refactoring code is making code more straightforward to understand. Furthermore, the code runs much faster, which is suitable for the more extensive dataset.<br>
-    <br>
-    - The disadvantage of refactoring code is time-consuming. It requires reconstructing the code. It needs to be appropriately planed before refactoring the code.<br>
+    
+    -  The disadvantage of refactoring code is time-consuming. It requires reconstructing the code. It needs to be appropriately planed before refactoring the code.<br>
     
 - How do these pros and cons apply to refactoring the original VBA script?<br>
-
-
+    - The refacored code made significant difference in terms of the execution time. The code is much simpler and cleaner. The cons did not apply so much to this project because it is not so complicated to refactor.
 
