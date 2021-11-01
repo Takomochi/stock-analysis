@@ -8,7 +8,7 @@ The purpose of this project is to refactor the code we have built. This is becau
 
 ## Results
 ### Analysis
-1. Refactoring Code<br>
+#### 1. Refactoring Code<br>
 To refactor code, we loop through the data one time and collect all the information. First set tickerIndex as zero. Then, created three output arrays, tickerVolumes, tickerStartingPrices and tickerEndingPrices. Loop through all the rows and store values (tickerVolumes, tickerStartingPrices, and tickerEndingPrices) for each ticker. We used the IF-THEN statement to get tickerStartingPrices and tickerEndingPrices. Finally, loop through all the arrays(tickers, tickerVolumes,tickerStartingPrices, and tickerEndingPrices) to output the ticker, total daily volume, and return. <br>
 
 Create arrays
@@ -56,7 +56,7 @@ Next i
 ```
 <br>
 
-2. Stock performance between 2017 and 2018<br>
+#### 2. Stock performance between 2017 and 2018<br>
 Between 2017 and 2018, the stock performance was much better in 2017. <br>
 In 2018, most of the stocks performed negatively. The only stocks that kept positive returns were ENPH and RUN in 2018.
 
@@ -65,15 +65,16 @@ In 2018, most of the stocks performed negatively. The only stocks that kept posi
 
 <br>
 
-3. Execution times of the original code and the refactored code<br>
+#### 3. Execution times of the original code and the refactored code<br>
 Run time became much faster for both years with the refactored code, as shown in the images.<br>
+While the run time with the original code is about 0.94 to 0.95, the run time with refactored code is 0.13 to 0.14.
 
-#### Execution time with original code<br>
-<img src="https://user-images.githubusercontent.com/85041697/139729537-bc03c414-bdf8-49ab-aad8-9ec48015fbf9.PNG" width="600">  <img src="https://user-images.githubusercontent.com/85041697/139729543-815d2754-d5c7-40a0-aa87-3b7797a86ebf.PNG" width="600">
+Execution time with original code <br>
+<img src="https://user-images.githubusercontent.com/85041697/139729537-bc03c414-bdf8-49ab-aad8-9ec48015fbf9.PNG" width="400">  <img src="https://user-images.githubusercontent.com/85041697/139729543-815d2754-d5c7-40a0-aa87-3b7797a86ebf.PNG" width="400">
 <br>
 <br>
-#### Execution time with refactored code<br>
-<img src="https://user-images.githubusercontent.com/85041697/139729564-e3743a05-6134-4fb5-8447-da2d39fecf19.PNG" width="600">  <img src="https://user-images.githubusercontent.com/85041697/139729605-a2678132-5913-43a3-9a31-0852464b6b56.PNG" width="600">
+Execution time with refactored code<br>
+<img src="https://user-images.githubusercontent.com/85041697/139729564-e3743a05-6134-4fb5-8447-da2d39fecf19.PNG" width="400">  <img src="https://user-images.githubusercontent.com/85041697/139729605-a2678132-5913-43a3-9a31-0852464b6b56.PNG" width="400">    
 
 
 ## Summary
@@ -84,5 +85,5 @@ Run time became much faster for both years with the refactored code, as shown in
     -  The disadvantage of refactoring code is time-consuming. It requires reconstructing the code. It needs to be appropriately planed before refactoring the code.<br>
     
 - How do these pros and cons apply to refactoring the original VBA script?<br>
-    - The refacored code made significant difference in terms of the execution time. The code is much simpler and cleaner. The cons did not apply so much to this project because it is not so complicated to refactor.
+    - The refactored code made a significant difference in terms of execution time. The code is much simpler and cleaner. The cons did not apply so much to this project because it is not so complicated to refactor.
 
