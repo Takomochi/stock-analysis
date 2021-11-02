@@ -67,7 +67,7 @@ In 2018, most of the stocks performed negatively. The only stocks that kept posi
 
 #### 3. Execution times of the original code and the refactored code<br>
 Run time became much faster for both years with the refactored code, as shown in the images.<br>
-While the run time with the original code is about 0.94 to 0.95, the run time with refactored code is 0.13 to 0.14.
+While the run time with the original code is about 0.94 to 0.95 seconds, the run time with refactored code is 0.13 to 0.14 seconds.
 
 Execution time with original code <br>
 <img src="https://user-images.githubusercontent.com/85041697/139729537-bc03c414-bdf8-49ab-aad8-9ec48015fbf9.PNG" width="400">  <img src="https://user-images.githubusercontent.com/85041697/139729543-815d2754-d5c7-40a0-aa87-3b7797a86ebf.PNG" width="400">
