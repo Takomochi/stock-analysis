@@ -4,53 +4,56 @@
 Steve's parents are passionate about green energy. Therefore, they decided to invest in Daqo New Energy Corporation, which makes silicon wafers for solar panels. Steve is going to look into Daqo for his parents. He also wants to analyze a handful of green energy stocks in addition to Daqo's stock.
 
 ### Purpose
-The purpose of this project is to refactor the code we have built. This is because Steve wants to expand the dataset to include the entire stock market over the last few years. Although the code works, it might not work as well for thousands of stocks. We are going to refactor the code and present an analysis and findings. The excel workbook is located [here](https://github.com/Takomochi/stock-analysis/blob/main/VBA_Challenge.xlsm). 
+The purpose of this project is to refactor the code we have built. This is because Steve wants to expand the dataset to include the entire stock market over the last few years. Although the original code works, it might not work as well for thousands of stocks. We are going to refactor the code and present an analysis and findings. The excel workbook is located [here](https://github.com/Takomochi/stock-analysis/blob/main/VBA_Challenge.xlsm). 
 
 ## Results
 ### Analysis
 #### 1. Refactoring Code<br>
-To refactor code, we loop through the data one time and collect all the information. First set tickerIndex as zero. Then, created three output arrays, tickerVolumes, tickerStartingPrices and tickerEndingPrices. Loop through all the rows and store values (tickerVolumes, tickerStartingPrices, and tickerEndingPrices) for each ticker. We used the IF-THEN statement to get tickerStartingPrices and tickerEndingPrices. Finally, loop through all the arrays(tickers, tickerVolumes,tickerStartingPrices, and tickerEndingPrices) to output the ticker, total daily volume, and return. <br>
+To refactor code, we loop through the data one time and collect all the information. First set tickerIndex as zero. Then, created three output arrays, tickerVolumes, tickerStartingPrices and tickerEndingPrices. Loop through all the rows and store values (tickerVolumes, tickerStartingPrices, and tickerEndingPrices) for each ticker. We used the IF-THEN statement to get tickerStartingPrices and tickerEndingPrices. Finally, loop through all the arrays(tickers, tickerVolumes,tickerStartingPrices, and tickerEndingPrices) to output the ticker, total daily volume, and return in "All Stocks Analysis" worksheet. <br>
 
-Create arrays
+Create three arrays
 ```
 Dim tickerVolumes(12) As Long
 Dim tickerStartingPrices(12) As Single
 Dim tickerEndingPrices(12) As Single
 ```
 
-Store tickerVolumes inside the loop
+Inside the for loop. Storing tickerVolumes, tickerStartingPrices and tickerEndingPrices.
 ```
-tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+For i = 2 To RowCount
+
+        '3a) Increase volume for current ticker
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+        
+        '3b) Check if the current row is the first row with the selected tickerIndex.
+        If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
+            
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+            
+        End If
+        
+        '3c) check if the current row is the last row with the selected ticker
+         'If the next row's ticker does not match, increase the tickerIndex.
+        If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+            
+            tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+
+            '3d Increase the tickerIndex.
+            tickerIndex = tickerIndex + 1
+            
+        End If
+    
+Next i
 ```
 
-Store tickerStartingPrices and inside the loop
-```
-If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
-            
-tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
-            
-End If
-```
-
-Store tickerEndingPrices and Increase tickerIndex inside the loop
-```
-If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
-            
-tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
-
-tickerIndex = tickerIndex + 1
-            
-End If
-```
-
-For loop to output the values
+For loop to output the values in "All Stocks Analysis" worksheet.
 ```
 For i = 0 To 11
         
-Worksheets("All Stocks Analysis").Activate
-Cells(4 + i, 1).Value = tickers(i)
-Cells(4 + i, 2).Value = tickerVolumes(i)
-Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+            Worksheets("All Stocks Analysis").Activate
+            Cells(4 + i, 1).Value = tickers(i)
+            Cells(4 + i, 2).Value = tickerVolumes(i)
+            Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
 
 Next i
 ```
